@@ -1,11 +1,11 @@
 package handlers
 
 import (
-	"net/http"
-	"github.com/ringtail/lucas/backend/services"
 	"encoding/json"
+	"github.com/ringtail/lucas/backend/services"
 	"github.com/ringtail/lucas/backend/types"
-	log "github.com/Sirupsen/logrus"
+	log "github.com/sirupsen/logrus"
+	"net/http"
 )
 
 func StoreHandler(w http.ResponseWriter, r *http.Request) {

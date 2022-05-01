@@ -1,9 +1,9 @@
 package cmd
 
 import (
-	log "github.com/Sirupsen/logrus"
 	"github.com/ringtail/lucas/backend"
 	"github.com/ringtail/lucas/backend/types"
+	log "github.com/sirupsen/logrus"
 )
 
 type CommandLine struct {

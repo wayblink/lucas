@@ -1,15 +1,15 @@
 package services
 
 import (
+	"context"
 	"crypto/tls"
 	"errors"
 	"strings"
 	"time"
 
-	log "github.com/Sirupsen/logrus"
-	"github.com/coreos/etcd/clientv3"
-	"github.com/coreos/etcd/pkg/transport"
-	"golang.org/x/net/context"
+	log "github.com/sirupsen/logrus"
+	"go.etcd.io/etcd/client/pkg/v3/transport"
+	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 func NewWithOutTLS(endpoints string) (*Store, error) {
@@ -51,7 +51,7 @@ func New(endpoints string, ca string, key string, cert string) (*Store, error) {
 
 func createTlsConf(ca, key, cert string) (*tls.Config, error) {
 	cfgtls := &transport.TLSInfo{}
-	cfgtls.CAFile = ca
+	//cfgtls.CAFile = ca
 	cfgtls.KeyFile = key
 	cfgtls.CertFile = cert
 	clientTLS, err := cfgtls.ClientConfig()
