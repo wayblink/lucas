@@ -14,6 +14,7 @@ type LucasServer struct {
 }
 
 func (ls *LucasServer) Start(opts *types.Opts) {
+	log.Info("LucasServer starting")
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", handlers.IndexHandler)
 	mux.HandleFunc("/store", handlers.StoreHandler)

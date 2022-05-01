@@ -14,6 +14,9 @@ func (cl *CommandLine) Run() {
 	if &cl.Opts != nil && cl.Opts.DebugMode == true {
 		log.SetLevel(log.DebugLevel)
 	}
+	log.SetFormatter(&log.TextFormatter{
+		FullTimestamp: true,
+	})
 	lbe := &backend.LucasServer{}
 	lbe.Start(cl.Opts)
 }
