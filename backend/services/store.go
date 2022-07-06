@@ -94,7 +94,9 @@ func (store *Store) List(key string) []*KeyValue {
 
 func (store *Store) ListByPath(key string) *Tree {
 	tree := &Tree{}
+	log.Info("Start store.List", key)
 	keyValues := store.List(key)
+	log.Info("End store.List", key)
 	for _, kv := range keyValues {
 		tree.AddNode(kv)
 	}

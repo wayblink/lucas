@@ -19,7 +19,9 @@ func (ls *LucasServer) Start(opts *types.Opts) {
 	mux.HandleFunc("/", handlers.IndexHandler)
 	mux.HandleFunc("/store", handlers.StoreHandler)
 	contextMux := ls.Middleware(opts, mux)
-	log.Fatal(http.ListenAndServe(":8080", contextMux))
+	port := opts.Port
+	log.Info("port", port)
+	log.Fatal(http.ListenAndServe(":"+port, contextMux))
 }
 
 func (ls *LucasServer) Middleware(opts *types.Opts, next http.Handler) http.Handler {

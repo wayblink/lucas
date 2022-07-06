@@ -6,4 +6,5 @@ type Opts struct {
 	Cert      string
 	Key       string
 	Ca        string
+	Port      string
 }
